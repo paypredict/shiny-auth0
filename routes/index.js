@@ -15,7 +15,7 @@ var authenticateWithPromptNone = passport.authenticate('auth0', {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.redirect('/reports/');
+    res.render('home');
 });
 
 router.get('/login',
