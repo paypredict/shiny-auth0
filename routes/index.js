@@ -1,7 +1,8 @@
 var express = require('express');
 var passport = require('passport');
+var url = require('url');
 var httpProxy = require('http-proxy');
-var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn()
+var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 var router = express.Router();
 
 var env = process.env;
@@ -15,7 +16,18 @@ var authenticateWithPromptNone = passport.authenticate('auth0', {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('home');
+    function javaHost() {
+        var result = url.parse(req.url).resolve('/');
+        result.port = "8080";
+        return result.format();
+    }
+
+    res.render('home', {
+      pp: {
+        rHost: "/reports/",
+        javaHost: env.PP_JAVA_HOST || javaHost(url)
+      }
+    });
 });
 
 router.get('/login',

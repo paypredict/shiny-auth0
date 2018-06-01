@@ -1,1 +1,95 @@
-a(href='login') login
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0')
+    title Pay Predict Data Apps Portal ( Demo Version )
+    link(rel='stylesheet' type='text/css' href='/lib/semantic/dist/semantic.min.css')
+    script(src='/lib/jquery-3.1.1.min.js')
+    script(src='/lib/semantic/dist/semantic.min.js')
+    style(type='text/css').
+        .main.container {
+            margin-top: 7em;
+        }
+h3.ui.block.header(align='middle')
+    | Pay Predict Applications Demo Portal (data prepared for illustration only)
+.ui.cards.main.container
+    .card
+        .content
+            .header
+                | Denial Analysis
+            .meta
+                | Explore denial and payment statistics by arbitrary dimensions
+            .description
+                a.ui.blue.ribbon.label Dimensions
+                div
+                    a.ui.label Cpt Code
+                    a.ui.label Payer
+                    a.ui.label Benefit Plan
+                    a.ui.label Denial Reason
+                    a.ui.label Client
+                    a.ui.label Dx Code
+                a.ui.blue.ribbon.label Measures
+                div
+                    a.ui.label Payment / Denial Ratio
+                    a.ui.label Average CPT Value
+                    a.ui.label Improvement Potential
+                a.meta Download selected data as .csv file
+                br
+        .extra.content
+            a(href='#{rHost}denials_cdxlabs/' target='_blank')
+                .ui.grey.button Open Application
+    .card
+        .content
+            .header
+                | Trend Change Detection
+            .meta
+                | Intelligent trend prediction and change point detection for client accounts
+            .description
+                a.ui.green.ribbon.label Top 40 Trend Changes List
+                div
+                    a.ui.label Client
+                    a.ui.label Volume Trend
+                    a.ui.label Value Trend
+                    a.ui.label Change Point
+                    a.ui.label Revenue Impact
+                a.ui.green.ribbon.label Details
+                div
+                    a.ui.label CPT Volumes
+                    a.ui.label Denial Reasons
+                    a.ui.label Insurance Mix
+        .extra.content
+            a(href='#{rHost}paytrend_cdxlabs/' target='_blank')
+                .ui.grey.button Open Application
+    .card
+        .content
+            .header
+                | Payment Predictions
+            .meta
+                | Predict probability of payment and denial reasons for test at the time of order
+            .description
+                a.ui.orange.ribbon.label Variables
+                div
+                    a.ui.label CPT Code
+                    a.ui.label Payer
+                    a.ui.label Benefit Plan
+                    a.ui.label Dx Code
+                a.ui.orange.ribbon.label Results
+                div
+                    a.ui.label Expected Pay
+                    a.ui.label Denial Risk
+                    a.ui.label Denial Reason
+                    a.ui.label ABN Form
+                    a.ui.label Precertification
+        .extra.content
+            a(href='${pp.javaHost}/paypredict/predict-cpt' target='_blank')
+                .ui.grey.button Open Application
+    .card
+        .content
+            .header
+                | Claim Search Example
+            .meta
+                | Quickly find and view claims by any search parameters. This example includes search by CPT,
+                | Diagnostic Code and Denial Reason
+        .extra.content
+            a(href='#{pp.javaHost}/claims/cv#cpt-denial-reason' target='_blank')
+                .ui.blue.button Run Query
