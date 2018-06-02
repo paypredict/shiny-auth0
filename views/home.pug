@@ -36,7 +36,7 @@ h3.ui.block.header(align='middle')
                 a.meta Download selected data as .csv file
                 br
         .extra.content
-            a(href= pp.rHost + 'denials_cdxlabs/' target='_blank')
+            a(href= pp.shinyUrl + 'denials_cdxlabs/' target='_blank')
                 .ui.grey.button Open Application
     .card
         .content
@@ -58,7 +58,7 @@ h3.ui.block.header(align='middle')
                     a.ui.label Denial Reasons
                     a.ui.label Insurance Mix
         .extra.content
-            a(href= pp.rHost + 'paytrend_cdxlabs/' target='_blank')
+            a(href= pp.shinyUrl + 'paytrend_cdxlabs/' target='_blank')
                 .ui.grey.button Open Application
     .card
         .content
@@ -81,7 +81,7 @@ h3.ui.block.header(align='middle')
                     a.ui.label ABN Form
                     a.ui.label Precertification
         .extra.content
-            a(href= pp.javaHost + 'paypredict/predict-cpt' target='_blank')
+            a(href= pp.javaUrl + 'paypredict/predict-cpt' target='_blank')
                 .ui.grey.button Open Application
     .card
         .content
@@ -91,5 +91,5 @@ h3.ui.block.header(align='middle')
                 | Quickly find and view claims by any search parameters. This example includes search by CPT,
                 | Diagnostic Code and Denial Reason
         .extra.content
-            a(href= pp.javaHost + 'claims/cv#cpt-denial-reason' target='_blank')
+            a(href= pp.javaUrl + 'claims/cv#cpt-denial-reason' target='_blank')
                 .ui.blue.button Run Query

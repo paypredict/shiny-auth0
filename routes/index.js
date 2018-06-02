@@ -17,8 +17,8 @@ var authenticateWithPromptNone = passport.authenticate('auth0', {
 router.get('/', function(req, res, next) {
     res.render('home', {
       pp: {
-        rHost: "/reports/",
-        javaHost: env.PP_JAVA_HOST || 'http://localhost:8080/'
+        shinyUrl: "/reports/",
+        javaUrl: env.PP_JAVA_URL || 'http://localhost:8080/'
       }
     });
 });
