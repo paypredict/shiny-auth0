@@ -10,15 +10,14 @@ head
         .main.container {
             margin-top: 7em;
         }
-h3.ui.block.header(align='middle')
-    | Pay Predict Applications Demo Portal (data prepared for illustration only)
+br
+h3.ui.huge.grey.centered.header Pay Predict Applications Portal - Sagis Dx
 .ui.cards.main.container
     .card
         .content
-            .header
-                | Denial Analysis
+            .header Opportunity Finder
             .meta
-                | Explore denial and payment statistics by arbitrary dimensions
+                | Explore denials and find revenue improvement opportunities
             .description
                 a.ui.blue.ribbon.label Dimensions
                 div
@@ -36,14 +35,21 @@ h3.ui.block.header(align='middle')
                 a.meta Download selected data as .csv file
                 br
         .extra.content
-            a(href= pp.shinyUrl + 'denials_cdxlabs/' target='_blank')
+            a(href= pp.shinyUrl + 'denials_sagis/' target='_blank')
                 .ui.grey.button Open Application
     .card
         .content
             .header
-                | Trend Change Detection
+                | Trends and Changes
             .meta
-                | Intelligent trend prediction and change point detection for client accounts
+                | Explore revenue trends, predict future revenues and detect trend changes for client accounts
+            .description
+                a.ui.green.ribbon.label Intelligent Revenue Dashboard
+                div
+                    a.ui.label Billed Work
+                    a.ui.label Unbilled Work
+                    a.ui.label No EOB
+                    a.ui.label Denials
             .description
                 a.ui.green.ribbon.label Top 40 Trend Changes List
                 div
@@ -52,13 +58,8 @@ h3.ui.block.header(align='middle')
                     a.ui.label Value Trend
                     a.ui.label Change Point
                     a.ui.label Revenue Impact
-                a.ui.green.ribbon.label Details
-                div
-                    a.ui.label CPT Volumes
-                    a.ui.label Denial Reasons
-                    a.ui.label Insurance Mix
         .extra.content
-            a(href= pp.shinyUrl + 'paytrend_cdxlabs/' target='_blank')
+            a(href= pp.shinyUrl + 'paytrend_sagis/' target='_blank')
                 .ui.grey.button Open Application
     .card
         .content
@@ -81,15 +82,24 @@ h3.ui.block.header(align='middle')
                     a.ui.label ABN Form
                     a.ui.label Precertification
         .extra.content
-            a(href= pp.javaUrl + 'paypredict/predict-cpt' target='_blank')
-                .ui.grey.button Open Application
+            a(href= pp.shinyUrl + 'not_configured.html' target='_blank')
+                .ui.disabled.button Open Application
     .card
         .content
             .header
-                | Claim Search Example
-            .meta
-                | Quickly find and view claims by any search parameters. This example includes search by CPT,
-                | Diagnostic Code and Denial Reason
+                | Key Performance Indicators
+            .desciption
+                | KPI Dashbard. Analytics repors with Google Data Studio
+            .content
+                a.ui.teal.ribbon.label Reports
+                div
+                    a.ui.label Blling Lag
+                    a.ui.label Denials by Category
         .extra.content
-            a(href= pp.javaUrl + 'claims/cv#cpt-denial-reason' target='_blank')
-                .ui.blue.button Run Query
+            a(href='https://datastudio.google.com/open/1GAmQBpUT7mt_QYQmHLMrXEskMKa1UD6B' target='_blank')
+                .ui.grey.button Open Application
+.ui.divider
+.ui.bottom.centered(align='middle')
+    a  Business Contact: Jennifer Ho (jho@sagisdx.com)
+    br
+    a  Techical Support: Pinnacle Services Corporation (wecare@pinnacleservice.co)
