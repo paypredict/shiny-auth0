@@ -12,15 +12,31 @@ var authenticateWithPromptNone = passport.authenticate('auth0', {
   prompt: 'none'
 });
 
+function renderHome(res) {
+    res.render('home', {
+        pp: {
+            shinyUrl: "/reports/",
+            javaUrl: env.PP_JAVA_URL || 'http://localhost:8080/'
+        }
+    });
+}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('home', {
-      pp: {
-        shinyUrl: "/reports/",
-        javaUrl: env.PP_JAVA_URL || 'http://localhost:8080/'
-      }
-    });
+    if (req.user) {
+        renderHome(res)
+    } else {
+        res.render('ROOT');
+    }
+});
+
+router.get('/home/', function(req, res, next) {
+    if (req.user) {
+        renderHome(res);
+    } else {
+        req.session.returnTo = '/home/';
+        res.redirect("/login")
+    }
 });
 
 router.get('/login',
@@ -31,7 +47,7 @@ router.get('/login',
     return authenticateWithDefaultPrompt(req, res, next);
   },
   function (req, res) {
-    res.redirect('/reports/');
+    res.redirect('/home/');
   });
 
 router.get('/logout', function(req, res){
@@ -57,13 +73,17 @@ router.get('/callback',
       if (info === 'login_required') {
         return res.redirect('/login?sso=false');
       }
-      
+
+        if (info === 'unauthorized') {
+            return res.render('authPending');
+        }
+
       if (user) {
         return req.login(user, function (err) {
           if (err) {
             next(err);
           }
-          res.redirect(req.session.returnTo || '/reports/');
+          res.redirect(req.session.returnTo || '/home/');
         });
       }
 
