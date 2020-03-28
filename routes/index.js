@@ -7,7 +7,7 @@ var router = express.Router();
 var env = process.env;
 
 // This adds support for the current way to sso
-var authenticateWithDefaultPrompt = passport.authenticate('auth0', {});
+var authenticateWithDefaultPrompt = passport.authenticate('auth0', {scope: 'openid email profile'});
 var authenticateWithPromptNone = passport.authenticate('auth0', {
   prompt: 'none'
 });
