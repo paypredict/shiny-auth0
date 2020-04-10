@@ -15,10 +15,14 @@ head
         .content
             .ui.large.grey.header
                 i.clock.outline.icon
-                | Authorization Pending
+                | Not Authorized
         .content(align='left')
             | Your account is not authorized to access applications at this time. We have
             | received your access request and will send you email once your access is granted.
+        .content(align='middle')
+            a(href='/reports/portal')
+                button.ui.primary.button
+                | Login Again
         .extra.content(align='left')
             | Business Contact: Jennifer Ho
             br
